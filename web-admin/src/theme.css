@@ -1,0 +1,222 @@
+/* === THEME OVERRIDES - NEW COLOR PALETTES === */
+
+/* Ocean Breeze - Cool, calming blues and teals */
+[data-color-theme="OCEAN_BREEZE"] {
+  --color-primary: oklch(55% 0.3 200);
+  --color-secondary: oklch(70% 0.2 190);
+  --color-primary-emphasis: oklch(50% 0.35 200);
+  --color-secondary-emphasis: oklch(65% 0.25 190);
+  --color-bg: oklch(96% 0.01 200);
+  --color-surface: oklch(94% 0.01 200);
+  --color-text: oklch(25% 0.02 220);
+  --color-primary-header: oklch(55% 0.3 200 / 0.2);
+  --color-secondary-header: oklch(70% 0.2 190 / 0.2);
+  --color-ui-primary: oklch(55% 0.3 200 / 0.1);
+  --color-ui-secondary: oklch(70% 0.2 190 / 0.1);
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto Slab", serif;
+}
+
+/* Sunset Meadow - Warm oranges, pinks, and purples */
+[data-color-theme="SUNSET_MEADOW"] {
+  --color-primary: oklch(72% 0.18 35); /* sunset orange */
+  --color-secondary: oklch(68% 0.15 300); /* evening purple */
+  --color-primary-emphasis: oklch(75% 0.2 35);
+  --color-secondary-emphasis: oklch(70% 0.17 300);
+  --color-bg: oklch(98% 0.02 50);
+  --color-surface: oklch(95% 0.02 55);
+  --color-text: oklch(30% 0.03 50);
+  --color-primary-header: oklch(72% 0.18 35 / 0.2);
+  --color-secondary-header: oklch(68% 0.15 300 / 0.2);
+  --color-ui-primary: oklch(72% 0.18 35 / 0.1);
+  --color-ui-secondary: oklch(68% 0.15 300 / 0.1);
+  --font-primary: "Geist", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+}
+
+/* Coral Horizon - Vibrant coral pinks and soft purples */
+[data-color-theme="CORAL_HORIZON"] {
+  --color-primary: oklch(75% 0.25 330);
+  --color-secondary: oklch(65% 0.1 290);
+  --color-primary-emphasis: oklch(78% 0.28 330);
+  --color-secondary-emphasis: oklch(68% 0.12 290);
+  --color-bg: oklch(99% 0.01 330);
+  --color-surface: oklch(97% 0.01 330);
+  --color-text: oklch(35% 0.04 320);
+  --color-primary-header: oklch(75% 0.25 330 / 0.2);
+  --color-secondary-header: oklch(65% 0.1 290 / 0.2);
+  --color-ui-primary: oklch(75% 0.25 330 / 0.1);
+  --color-ui-secondary: oklch(65% 0.1 290 / 0.1);
+  --font-primary: "Public Sans", sans-serif;
+  --font-secondary: "Roboto Slab", serif;
+}
+
+/* Forest Mist - Deep greens and foggy grays */
+[data-color-theme="FOREST_MIST"] {
+  --color-primary: oklch(50% 0.12 130);
+  --color-secondary: oklch(35% 0.05 150);
+  --color-primary-emphasis: oklch(55% 0.15 130);
+  --color-secondary-emphasis: oklch(40% 0.06 150);
+  --color-bg: oklch(94% 0.02 120);
+  --color-surface: oklch(91% 0.03 125);
+  --color-text: oklch(30% 0.07 130);
+  --color-primary-header: oklch(50% 0.12 130 / 0.2);
+  --color-secondary-header: oklch(35% 0.05 150 / 0.2);
+  --color-ui-primary: oklch(50% 0.12 130 / 0.1);
+  --color-ui-secondary: oklch(35% 0.05 150 / 0.1);
+  --font-primary: "Amaranth", sans-serif;
+  --font-secondary: "Merriweather", serif;
+}
+
+/* Golden Harvest - Autumn golds and rich browns */
+[data-color-theme="GOLDEN_HARVEST"] {
+  --color-primary: oklch(72% 0.25 70);
+  --color-secondary: oklch(55% 0.1 40);
+  --color-primary-emphasis: oklch(75% 0.28 70);
+  --color-secondary-emphasis: oklch(58% 0.12 40);
+  --color-bg: oklch(99% 0.01 60);
+  --color-surface: oklch(97% 0.02 62);
+  --color-text: oklch(32% 0.02 50);
+  --color-primary-header: oklch(72% 0.25 70 / 0.2);
+  --color-secondary-header: oklch(55% 0.1 40 / 0.2);
+  --color-ui-primary: oklch(72% 0.25 70 / 0.1);
+  --color-ui-secondary: oklch(55% 0.1 40 / 0.1);
+  --font-primary: "Rubik", sans-serif;
+  --font-secondary: "Source Serif Pro", serif;
+}
+
+/* Midnight Glimmer - Dark blues with starry highlights */
+[data-color-theme="MIDNIGHT_GLIMMER"] {
+  --color-primary: oklch(15% 0.08 220);
+  --color-secondary: oklch(40% 0.05 240);
+  --color-primary-emphasis: oklch(20% 0.1 220);
+  --color-secondary-emphasis: oklch(45% 0.07 240);
+  --color-bg: oklch(10% 0.01 220);
+  --color-surface: oklch(12% 0.02 240);
+  --color-text: oklch(90% 0.02 220);
+  --color-primary-header: oklch(15% 0.08 220 / 0.2);
+  --color-secondary-header: oklch(40% 0.05 240 / 0.2);
+  --color-ui-primary: oklch(15% 0.08 220 / 0.1);
+  --color-ui-secondary: oklch(40% 0.05 240 / 0.1);
+  --font-primary: "Archivo", sans-serif;
+  --font-secondary: "Playfair Display", serif;
+}
+
+/* Mint Grove - Fresh greens and soft nature tones */
+[data-color-theme="MINT_GROVE"] {
+  --color-primary: oklch(65% 0.2 150); /* mint green */
+  --color-secondary: oklch(85% 0.12 80); /* soft leafy green */
+  --color-primary-emphasis: oklch(70% 0.25 150);
+  --color-secondary-emphasis: oklch(88% 0.15 80);
+  --color-bg: oklch(98.7% 0.01 140);
+  --color-surface: oklch(96% 0.02 145);
+  --color-text: oklch(20% 0.01 140);
+  --color-primary-header: oklch(65% 0.2 150 / 0.2);
+  --color-secondary-header: oklch(85% 0.12 80 / 0.2);
+  --color-ui-primary: oklch(65% 0.2 150 / 0.1);
+  --color-ui-secondary: oklch(85% 0.12 80 / 0.1);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Lora", serif;
+}
+
+/* Pastel Dream - Soft pastel purples, pinks, blues */
+[data-color-theme="PASTEL_DREAM"] {
+  --color-primary: oklch(80% 0.12 290); /* soft lavender */
+  --color-secondary: oklch(78% 0.08 320); /* pastel pink */
+  --color-primary-emphasis: oklch(82% 0.14 290);
+  --color-secondary-emphasis: oklch(80% 0.1 320);
+  --color-bg: oklch(95% 0.02 310);
+  --color-surface: oklch(92% 0.01 305);
+  --color-text: oklch(30% 0.01 280);
+  --color-primary-header: oklch(80% 0.12 290 / 0.2);
+  --color-secondary-header: oklch(78% 0.08 320 / 0.2);
+  --color-ui-primary: oklch(80% 0.12 290 / 0.1);
+  --color-ui-secondary: oklch(78% 0.08 320 / 0.1);
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: "Caveat", cursive;
+}
+
+/* Blue Horizon - Clear skies and distant blue shades */
+[data-color-theme="BLUE_HORIZON"] {
+  --color-primary: oklch(72% 0.15 210); /* sky blue */
+  --color-secondary: oklch(65% 0.12 220); /* horizon blue */
+  --color-primary-emphasis: oklch(75% 0.18 210);
+  --color-secondary-emphasis: oklch(68% 0.14 220);
+  --color-bg: oklch(95% 0.01 200);
+  --color-surface: oklch(94% 0.01 205);
+  --color-text: oklch(25% 0.03 210);
+  --color-primary-header: oklch(72% 0.15 210 / 0.2);
+  --color-secondary-header: oklch(65% 0.12 220 / 0.2);
+  --color-ui-primary: oklch(72% 0.15 210 / 0.1);
+  --color-ui-secondary: oklch(65% 0.12 220 / 0.1);
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Roboto Slab", serif;
+}
+
+/* Soft Rays - Gentle yellows and light oranges */
+[data-color-theme="SOFT_RAYS"] {
+  --color-primary: oklch(75% 0.22 50); /* sunbeam yellow */
+  --color-secondary: oklch(65% 0.1 45); /* soft sunlight orange */
+  --color-primary-emphasis: oklch(78% 0.25 50);
+  --color-secondary-emphasis: oklch(68% 0.12 45);
+  --color-bg: oklch(98% 0.01 55);
+  --color-surface: oklch(96% 0.01 60);
+  --color-text: oklch(25% 0.02 50);
+  --color-primary-header: oklch(75% 0.22 50 / 0.2);
+  --color-secondary-header: oklch(65% 0.1 45 / 0.2);
+  --color-ui-primary: oklch(75% 0.22 50 / 0.1);
+  --color-ui-secondary: oklch(65% 0.1 45 / 0.1);
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Lora", serif;
+}
+
+/* Spiral Spotify - Lively green & tech vibes */
+[data-color-theme="SPIRAL_SPOTIFY"] {
+  --color-primary: oklch(70% 0.2 150); /* bright green */
+  --color-secondary: oklch(85% 0.1 120); /* light lime */
+  --color-primary-emphasis: oklch(75% 0.25 150);
+  --color-secondary-emphasis: oklch(88% 0.12 120);
+  --color-bg: oklch(98% 0.01 140);
+  --color-surface: oklch(95% 0.01 145);
+  --color-text: oklch(25% 0.02 140);
+  --color-primary-header: oklch(70% 0.2 150 / 0.2);
+  --color-secondary-header: oklch(85% 0.1 120 / 0.2);
+  --color-ui-primary: oklch(70% 0.2 150 / 0.1);
+  --color-ui-secondary: oklch(85% 0.1 120 / 0.1);
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Lora", serif;
+}
+
+/* Flare Valor - Bold reds and fiery tones */
+[data-color-theme="FLARE_VALOR"] {
+  --color-primary: oklch(70% 0.25 25); /* fiery red */
+  --color-secondary: oklch(45% 0.05 10); /* deep maroon */
+  --color-primary-emphasis: oklch(75% 0.28 25);
+  --color-secondary-emphasis: oklch(50% 0.08 10);
+  --color-bg: oklch(98% 0.01 30);
+  --color-surface: oklch(96% 0.01 25);
+  --color-text: oklch(20% 0.02 20);
+  --color-primary-header: oklch(70% 0.25 25 / 0.2);
+  --color-secondary-header: oklch(45% 0.05 10 / 0.2);
+  --color-ui-primary: oklch(70% 0.25 25 / 0.1);
+  --color-ui-secondary: oklch(45% 0.05 10 / 0.1);
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Merriweather", serif;
+}
+
+/* Code Night - Dark coding theme with blue tones */
+[data-color-theme="CODE_NIGHT"] {
+  --color-primary: oklch(15% 0.05 220); /* deep navy */
+  --color-secondary: oklch(40% 0.03 210); /* dark slate */
+  --color-primary-emphasis: oklch(20% 0.07 220);
+  --color-secondary-emphasis: oklch(45% 0.05 210);
+  --color-bg: oklch(12% 0.01 220);
+  --color-surface: oklch(15% 0.01 210);
+  --color-text: oklch(90% 0.02 220);
+  --color-primary-header: oklch(15% 0.05 220 / 0.2);
+  --color-secondary-header: oklch(40% 0.03 210 / 0.2);
+  --color-ui-primary: oklch(15% 0.05 220 / 0.1);
+  --color-ui-secondary: oklch(40% 0.03 210 / 0.1);
+  --font-primary: "Fira Code", monospace;
+  --font-secondary: "Courier New", monospace;
+}

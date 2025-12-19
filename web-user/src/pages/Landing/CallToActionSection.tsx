@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CallToActionSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-24 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
       <motion.div
@@ -16,10 +18,14 @@ const CallToActionSection = () => {
           today.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Button className="bg-white text-indigo-600 hover:bg-gray-100 shadow-lg">
+          <Button
+            onClick={() => navigate("/course")}
+            className="bg-white text-indigo-600 hover:bg-gray-100 shadow-lg"
+          >
             Get Started
           </Button>
           <Button
+            onClick={() => navigate("/course")}
             variant="default"
             className="bg-indigo-800/30 hover:bg-indigo-800/50 text-white shadow-lg"
           >

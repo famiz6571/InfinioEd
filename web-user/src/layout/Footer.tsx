@@ -12,6 +12,34 @@ import {
 } from "lucide-react";
 
 const Footer: FC = () => {
+  // Page links
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Courses", path: "/courses" },
+    { name: "Blog", path: "/blog" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  // Resource links
+  const resources = [
+    { name: "Tutorials", path: "/tutorials" },
+    { name: "FAQ", path: "/faq" },
+    { name: "Support", path: "/support" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
+  ];
+
+  // Social links
+  const socials: { icon: FC<any>; url: string }[] = [
+    { icon: Github, url: "https://github.com" },
+    { icon: Linkedin, url: "https://linkedin.com" },
+    { icon: Twitter, url: "https://twitter.com" },
+    { icon: Instagram, url: "https://instagram.com" },
+    { icon: Youtube, url: "https://youtube.com" },
+    { icon: Facebook, url: "https://facebook.com" },
+  ];
+
   return (
     <footer className="bg-primary dark:bg-gray-900 text-gray-200 transition-colors duration-300 mt-auto">
       <div className="container mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
@@ -25,48 +53,11 @@ const Footer: FC = () => {
 
           {/* Social Icons */}
           <div className="flex gap-3 mt-4 justify-center md:justify-start">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Youtube className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Facebook className="w-5 h-5 hover:text-white transition-colors" />
-            </a>
+            {socials.map(({ icon: Icon, url }) => (
+              <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+                <Icon className="w-5 h-5 hover:text-white transition-colors" />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -74,54 +65,16 @@ const Footer: FC = () => {
         <div className="text-center md:text-left">
           <h4 className="font-semibold mb-3 text-white">Pages</h4>
           <ul className="flex flex-col gap-2">
-            <li>
-              <Link
-                to="/"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/courses"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Courses
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/blog"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/gallery"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Contact
-              </Link>
-            </li>
+            {pages.map((page) => (
+              <li key={page.name}>
+                <Link
+                  to={page.path}
+                  className="hover:underline hover:text-white transition-colors"
+                >
+                  {page.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -129,38 +82,16 @@ const Footer: FC = () => {
         <div className="text-center md:text-left">
           <h4 className="font-semibold mb-3 text-white">Resources</h4>
           <ul className="flex flex-col gap-2">
-            <li>
-              <Link
-                to="/tutorials"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Tutorials
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/faq"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/support"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Support
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/privacy-policy"
-                className="hover:underline hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-            </li>
+            {resources.map((res) => (
+              <li key={res.name}>
+                <Link
+                  to={res.path}
+                  className="hover:underline hover:text-white transition-colors"
+                >
+                  {res.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

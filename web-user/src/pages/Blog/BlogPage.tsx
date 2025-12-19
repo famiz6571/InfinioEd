@@ -42,7 +42,7 @@ const blogPosts: BlogPost[] = [
 
 const BlogPage: FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 rounded-md">
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold mb-8">Our Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

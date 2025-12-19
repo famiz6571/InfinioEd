@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-hidden shadow-lg rounded-md">
       {/* Background Shape / Blob */}
@@ -22,10 +24,14 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mt-4">
-            <Button className="bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-300">
+            <Button
+              onClick={() => navigate("/courses")}
+              className="bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-300"
+            >
               Get Started
             </Button>
             <Button
+              onClick={() => navigate("/courses")}
               variant="outline"
               className="border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-800 transition-all duration-300"
             >

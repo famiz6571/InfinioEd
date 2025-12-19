@@ -1,16 +1,38 @@
+// src/layout/Layout.tsx
 import type { FC, ReactNode } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollToTopButton from "@/components/common/ScrollToTopButton";
 
-const Layout: FC<{ children?: ReactNode }> = () => {
+interface LayoutProps {
+  children?: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
+  const location = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow container mx-auto p-4">
-        <Outlet />
+    <div className="flex flex-col min-h-screen bg-background text-foreground transition-colors duration-300">
+      <header className="sticky top-0 z-50 bg-background shadow-md transition-colors duration-300">
+        <Navbar />
+      </header>
+
+      <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
+        {children ?? <Outlet />}
       </main>
+
       <Footer />
+
+      {/* Scroll-to-top button */}
+      <ScrollToTopButton />
     </div>
   );
 };

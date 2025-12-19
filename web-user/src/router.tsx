@@ -1,16 +1,59 @@
+// src/AppRouter.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
 import type { FC } from "react";
+
 import Layout from "./layout/Layout";
+import LandingPage from "./pages/Landing/LandingPage";
+import AboutPage from "./pages/About/AboutPage";
+import ContactPage from "./pages/Contact/ContactPage";
+import CoursesPage from "./pages/Courses/CoursesPage";
+import CourseDetailPage from "./pages/Courses/CourseDetailPage";
+import BlogPage from "./pages/Blog/BlogPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import BlogDetailPage from "./pages/Blog/BlogDetailPage";
+import GalleryPage from "./pages/Gallery/GalleryPage";
+import TutorialsPage from "./pages/Tutorials/TutorialsPage";
+import FAQPage from "./pages/FAQ/FAQPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicy/PrivacyPolicyPage";
+import SupportPage from "./pages/Support/SupportPage";
 
 const AppRouter: FC = () => {
   return (
     <Router>
       <Routes>
+        {/* Layout wrapper for Navbar + Footer */}
         <Route element={<Layout />}>
+          {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
-          {/* Add more pages here, e.g.:
-          <Route path="/about" element={<AboutPage />} /> */}
+
+          {/* About Page */}
+          <Route path="/about" element={<AboutPage />} />
+
+          {/* Contact Page */}
+          <Route path="/contact" element={<ContactPage />} />
+
+          {/* Courses List */}
+          <Route path="/courses" element={<CoursesPage />} />
+
+          {/* Course Detail (dynamic) */}
+          <Route path="/courses/:id" element={<CourseDetailPage />} />
+
+          {/* Blog List */}
+          <Route path="/blog" element={<BlogPage />} />
+
+          {/* Blog Detail (dynamic) */}
+          <Route path="/blog/:id" element={<BlogDetailPage />} />
+
+          {/* Gallery Page */}
+          <Route path="/gallery" element={<GalleryPage />} />
+
+          <Route path="/tutorials" element={<TutorialsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+
+          {/* 404 fallback */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Router>

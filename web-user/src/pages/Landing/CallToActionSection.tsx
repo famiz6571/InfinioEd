@@ -19,13 +19,13 @@ const CallToActionSection = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button
-            onClick={() => navigate("/course")}
+            onClick={() => navigate("/courses")}
             className="bg-white text-indigo-600 hover:bg-gray-100 shadow-lg"
           >
             Get Started
           </Button>
           <Button
-            onClick={() => navigate("/course")}
+            onClick={() => navigate("/courses")}
             variant="default"
             className="bg-indigo-800/30 hover:bg-indigo-800/50 text-white shadow-lg"
           >

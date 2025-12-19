@@ -7,45 +7,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { courses } from "@/data/courses";
+import { useNavigate } from "react-router-dom";
 
 const CoursesCarousel = () => {
-  const courses = [
-    {
-      id: 1,
-      title: "Full Stack Development with React & Node",
-      image: "/courses/fsnode.png",
-    },
-    {
-      id: 2,
-      title: "Mastering MERN Stack",
-      image: "/courses/mernstack.png",
-    },
-    {
-      id: 3,
-      title: "Full Stack JavaScript Bootcamp",
-      image: "/courses/fsjs.png",
-    },
-    {
-      id: 4,
-      title: "Python & Django Full Stack Development",
-      image: "/courses/python.png",
-    },
-    {
-      id: 5,
-      title: "Angular & Node Full Stack Course",
-      image: "/courses/angular.png",
-    },
-    {
-      id: 6,
-      title: "Vue.js and Express Full Stack Development",
-      image: "/courses/vue.png",
-    },
-    {
-      id: 7,
-      title: "Advanced Full Stack Developer Program",
-      image: "/courses/advanced.png",
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
     <section className="py-24 px-6">
@@ -57,14 +23,26 @@ const CoursesCarousel = () => {
           <CarouselContent>
             {courses.map((course) => (
               <CarouselItem key={course.id} className="md:basis-1/3">
-                <Card className="overflow-hidden p-3">
+                <Card
+                  className="overflow-hidden p-3 cursor-pointer"
+                  onClick={() => navigate(`/courses/${course.id}`)}
+                >
                   <img
                     src={course.image}
-                    className="h-full w-full object-cover rounded-md"
+                    alt={course.title}
+                    className="h-48 w-full object-cover rounded-t-lg"
                   />
                   <CardContent className="p-2">
                     <h3 className="font-semibold mb-2">{course.title}</h3>
-                    <Button className="w-full">Enroll Now</Button>
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent card click
+                        navigate(`/courses/${course.id}`);
+                      }}
+                      className="w-full"
+                    >
+                      Enroll Now
+                    </Button>
                   </CardContent>
                 </Card>
               </CarouselItem>

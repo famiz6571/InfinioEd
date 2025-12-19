@@ -25,7 +25,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <Navbar />
       </header>
 
-      <main className="flex-grow container mx-auto px-4 py-8 md:py-12">
+      <main className="flex-grow container mx-auto px-4 py-8 ">
         {children ?? <Outlet />}
       </main>
 

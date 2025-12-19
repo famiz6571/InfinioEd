@@ -1,5 +1,13 @@
 import type { FC } from "react";
 import { NavLink } from "react-router-dom";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface BlogPost {
   id: number;
@@ -39,26 +47,29 @@ const BlogPage: FC = () => {
         <h1 className="text-4xl font-bold mb-8">Our Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
-            <div
+            <Card
               key={post.id}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300"
+              className="hover:shadow-lg transition-shadow duration-300"
             >
-              <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {post.excerpt}
-              </p>
-              <div className="flex justify-between items-center">
+              <CardHeader>
+                <CardTitle>{post.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {post.excerpt}
+                </p>
+              </CardContent>
+              <CardFooter className="flex justify-between items-center">
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   {post.date}
                 </span>
-                <NavLink
-                  to={`/blog/${post.id}`}
-                  className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
-                >
-                  Read More
+                <NavLink to={`/blog/${post.id}`}>
+                  <Button variant="link" size="sm" className="px-0">
+                    Read More
+                  </Button>
                 </NavLink>
-              </div>
-            </div>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

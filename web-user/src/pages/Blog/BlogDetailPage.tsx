@@ -1,5 +1,7 @@
 import type { FC } from "react";
 import { useParams, NavLink } from "react-router-dom";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface BlogPost {
   id: string;
@@ -47,17 +49,23 @@ const BlogDetailPage: FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="container mx-auto px-4 py-12">
-        <NavLink
-          to="/blog"
-          className="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block"
-        >
-          ← Back to Blog
+        <NavLink to="/blog">
+          <Button variant="link" className="mb-6 px-0">
+            ← Back to Blog
+          </Button>
         </NavLink>
-        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-        <span className="text-gray-500 dark:text-gray-400 mb-6 block">
-          {post.date}
-        </span>
-        <p className="text-lg">{post.content}</p>
+
+        <Card className="max-w-3xl mx-auto">
+          <CardHeader>
+            <CardTitle className="text-4xl">{post.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <span className="text-gray-500 dark:text-gray-400 block mb-6">
+              {post.date}
+            </span>
+            <p className="text-lg">{post.content}</p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

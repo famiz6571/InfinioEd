@@ -13,37 +13,37 @@ const CoursesCarousel = () => {
     {
       id: 1,
       title: "Full Stack Development with React & Node",
-      image: "/fsnode.png",
+      image: "/courses/fsnode.png",
     },
     {
       id: 2,
       title: "Mastering MERN Stack",
-      image: "https://source.unsplash.com/400x300/?education,online,2",
+      image: "/courses/mernstack.png",
     },
     {
       id: 3,
       title: "Full Stack JavaScript Bootcamp",
-      image: "https://source.unsplash.com/400x300/?education,online,3",
+      image: "/courses/fsjs.png",
     },
     {
       id: 4,
       title: "Python & Django Full Stack Development",
-      image: "https://source.unsplash.com/400x300/?education,online,4",
+      image: "/courses/python.png",
     },
     {
       id: 5,
       title: "Angular & Node Full Stack Course",
-      image: "https://source.unsplash.com/400x300/?education,online,5",
+      image: "/courses/angular.png",
     },
     {
       id: 6,
       title: "Vue.js and Express Full Stack Development",
-      image: "https://source.unsplash.com/400x300/?education,online,6",
+      image: "/courses/vue.png",
     },
     {
       id: 7,
       title: "Advanced Full Stack Developer Program",
-      image: "https://source.unsplash.com/400x300/?education,online,7",
+      image: "/courses/advanced.png",
     },
   ];
 
@@ -57,12 +57,12 @@ const CoursesCarousel = () => {
           <CarouselContent>
             {courses.map((course) => (
               <CarouselItem key={course.id} className="md:basis-1/3">
-                <Card className="overflow-hidden">
+                <Card className="overflow-hidden p-3">
                   <img
                     src={course.image}
-                    className="h-88 w-full object-cover"
+                    className="h-full w-full object-cover rounded-md"
                   />
-                  <CardContent className="p-6">
+                  <CardContent className="p-2">
                     <h3 className="font-semibold mb-2">{course.title}</h3>
                     <Button className="w-full">Enroll Now</Button>
                   </CardContent>

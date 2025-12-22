@@ -16,6 +16,7 @@ import TutorialsPage from "./pages/Tutorials/TutorialsPage";
 import FAQPage from "./pages/FAQ/FAQPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy/PrivacyPolicyPage";
 import SupportPage from "./pages/Support/SupportPage";
+import EventsPage from "./pages/Events/EventsPage";
 
 const AppRouter: FC = () => {
   return (
@@ -46,6 +47,9 @@ const AppRouter: FC = () => {
 
           {/* Gallery Page */}
           <Route path="/gallery" element={<GalleryPage />} />
+
+          {/* Events Page */}
+          <Route path="/events" element={<EventsPage />} />
 
           <Route path="/tutorials" element={<TutorialsPage />} />
           <Route path="/faq" element={<FAQPage />} />

@@ -17,6 +17,7 @@ const Footer: FC = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Courses", path: "/courses" },
+    { name: "Events", path: "/events" },
     { name: "Blog", path: "/blog" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },

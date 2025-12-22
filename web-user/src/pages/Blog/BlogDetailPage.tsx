@@ -10,14 +10,14 @@ const BlogDetailPage: FC = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-md">
         <p className="text-xl">Blog post not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300  rounded-md">
       <div className="max-w-3xl mx-auto px-4 py-16">
         {/* Back Button */}
         <motion.div

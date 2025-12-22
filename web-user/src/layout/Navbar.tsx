@@ -2,16 +2,20 @@ import type { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "../components/common/ThemeToggleButton";
+import { Menu } from "lucide-react";
+import AuthDialog from "@/components/common/AuthDialog";
+import { useAuth } from "@/context/AuthContext";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { Menu } from "lucide-react";
-import AuthDialog from "@/components/common/AuthDialog";
+import ProfileMenu from "@/components/ProfileMenu";
 
 const Navbar: FC = () => {
+  const { user } = useAuth();
+
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `relative px-1 py-0.5 font-medium transition-colors duration-200
     ${
@@ -20,7 +24,6 @@ const Navbar: FC = () => {
         : "text-white/80 hover:text-white after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:rounded-full hover:after:w-full after:transition-all after:duration-300"
     }`;
 
-  // Define nav links in an array
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -29,6 +32,8 @@ const Navbar: FC = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Blog", path: "/blog" },
   ];
+
+  const initials = user ? `${user.firstName[0]}${user.lastName[0]}` : "";
 
   return (
     <header className="bg-primary dark:bg-gray-900 text-white transition-colors duration-300">
@@ -50,13 +55,14 @@ const Navbar: FC = () => {
           <li>
             <ThemeToggleButton />
           </li>
-          <li>
-            <AuthDialog />
-          </li>
+          <li>{user ? <ProfileMenu initials={initials} /> : <AuthDialog />}</li>
         </ul>
 
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggleButton />
+          {user ? <ProfileMenu initials={initials} /> : <AuthDialog />}
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -71,9 +77,6 @@ const Navbar: FC = () => {
                   </NavLink>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuItem asChild>
-                <ThemeToggleButton />
-              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

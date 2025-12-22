@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MessageSquare } from "lucide-react";
+import LiveChat from "./LiveChat";
 
 const SupportPage: FC = () => {
   return (
@@ -63,9 +64,7 @@ const SupportPage: FC = () => {
                 Chat with our team in real-time. Available 24/7 for all
                 inquiries.
               </CardDescription>
-              <Button variant="default" size="sm">
-                Start Chat
-              </Button>
+              <LiveChat />
             </CardContent>
           </Card>
         </div>

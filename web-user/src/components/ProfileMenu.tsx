@@ -1,10 +1,9 @@
-import type { FC, JSX } from "react";
+import type { FC } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
@@ -18,25 +17,13 @@ import {
   MessageSquare,
   Bell,
   CreditCard,
-  Globe,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import ProfileMenuItem from "@/components/ProfileMenuItem";
+import LanguageDropdown from "@/components/LanguageDropdown";
 
 interface ProfileMenuProps {
   initials: string;
-}
-
-interface MenuItem {
-  label: string;
-  icon: JSX.Element;
-  path?: string;
-  onClick?: () => void;
-  badgeCount?: number; // ✅ NEW
-}
-
-interface MenuSection {
-  title?: string;
-  items: MenuItem[];
 }
 
 const ProfileMenu: FC<ProfileMenuProps> = ({ initials }) => {
@@ -47,97 +34,9 @@ const ProfileMenu: FC<ProfileMenuProps> = ({ initials }) => {
 
   const handleNavigate = (path: string) => navigate(path);
 
-  // 🔔 Example counts (replace with API/state later)
+  // 🔔 Replace with real state / API later
   const notificationCount = 3;
   const messageCount = 7;
-
-  const menuSections: MenuSection[] = [
-    {
-      items: [
-        {
-          label: `${user.firstName} ${user.lastName}`,
-          icon: (
-            <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 text-black font-semibold dark:bg-gray-700 dark:text-white">
-              {initials}
-            </div>
-          ),
-          onClick: () => handleNavigate("/userprofile"),
-        },
-      ],
-    },
-    {
-      title: "INFINO ED",
-      items: [
-        {
-          label: "My Learning",
-          icon: <BookOpen size={16} />,
-          path: "/my-learning",
-        },
-        {
-          label: "My Cart",
-          icon: <ShoppingCart size={16} />,
-          path: "/my-cart",
-        },
-        { label: "Wishlist", icon: <Heart size={16} />, path: "/wishlist" },
-        {
-          label: "Teach on INFINO ED",
-          icon: <User size={16} />,
-          path: "/teach",
-        },
-      ],
-    },
-    {
-      title: "Notifications",
-      items: [
-        {
-          label: "Notifications",
-          icon: <Bell size={16} />,
-          path: "/notifications",
-          badgeCount: notificationCount, // 🔴
-        },
-        {
-          label: "Messages",
-          icon: <MessageSquare size={16} />,
-          path: "/messages",
-          badgeCount: messageCount, // 🔵
-        },
-      ],
-    },
-    {
-      title: "Account",
-      items: [
-        {
-          label: "Payment Methods",
-          icon: <CreditCard size={16} />,
-          path: "/payment-methods",
-        },
-        {
-          label: "Subscriptions",
-          icon: <User size={16} />,
-          path: "/subscriptions",
-        },
-        {
-          label: "Purchase History",
-          icon: <BookOpen size={16} />,
-          path: "/purchase-history",
-        },
-        {
-          label: "INFINO ED Credits",
-          icon: <CreditCard size={16} />,
-          path: "/infinioed-credits",
-        },
-      ],
-    },
-    {
-      title: "Language",
-      items: [{ label: "Language", icon: <Globe size={16} /> }],
-    },
-    {
-      items: [
-        { label: "Sign Out", icon: <LogOut size={16} />, onClick: logout },
-      ],
-    },
-  ];
 
   return (
     <DropdownMenu>
@@ -152,71 +51,114 @@ const ProfileMenu: FC<ProfileMenuProps> = ({ initials }) => {
 
       <DropdownMenuContent
         align="end"
-        className="w-60 p-1 shadow-lg rounded-md"
+        className="w-64 p-1 shadow-lg rounded-md"
       >
-        {menuSections.map((section, idx) => (
-          <div key={idx}>
-            {section.title && (
-              <>
-                <DropdownMenuLabel className="px-4 text-gray-400 text-xs uppercase">
-                  {section.title}
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-              </>
-            )}
+        {/* USER HEADER */}
+        <ProfileMenuItem
+          icon={
+            <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 text-black font-semibold dark:bg-gray-700 dark:text-white">
+              {initials}
+            </div>
+          }
+          label={`${user.firstName} ${user.lastName}`}
+          description={user.email}
+          onClick={() => handleNavigate("/userprofile")}
+        />
 
-            {section.items.map((item, itemIdx) => {
-              // 🌐 Language selector
-              if (item.label === "Language") {
-                return (
-                  <div
-                    key={itemIdx}
-                    className="flex items-center justify-between gap-2 px-4 py-2 rounded-md hover:bg-white/10"
-                  >
-                    <div className="flex items-center gap-2">
-                      {item.icon} {item.label}
-                    </div>
-                    <select
-                      defaultValue="en"
-                      className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded px-2 py-1 text-sm"
-                    >
-                      <option value="en">English</option>
-                      <option value="es">Spanish</option>
-                      <option value="fr">French</option>
-                      <option value="de">German</option>
-                    </select>
-                  </div>
-                );
-              }
+        <DropdownMenuSeparator />
 
-              return (
-                <DropdownMenuItem
-                  key={itemIdx}
-                  className={`flex items-center justify-between px-4 py-2 rounded-md hover:bg-white/10 ${
-                    item.label === "Sign Out" ? "text-red-500 py-3" : ""
-                  }`}
-                  onClick={
-                    item.onClick ??
-                    (() => item.path && handleNavigate(item.path))
-                  }
-                >
-                  <div className="flex items-center gap-2">
-                    {item.icon} {item.label}
-                  </div>
+        {/* INFINO ED */}
+        <DropdownMenuLabel className="px-4 text-gray-400 text-xs uppercase">
+          INFINO ED
+        </DropdownMenuLabel>
 
-                  {/* 🔴 Badge */}
-                  {item.badgeCount && item.badgeCount > 0 && (
-                    <span className="min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full text-xs font-semibold bg-red-500 text-white">
-                      {item.badgeCount}
-                    </span>
-                  )}
-                </DropdownMenuItem>
-              );
-            })}
+        <ProfileMenuItem
+          icon={<BookOpen size={16} />}
+          label="My Learning"
+          onClick={() => handleNavigate("/my-learning")}
+        />
+        <ProfileMenuItem
+          icon={<ShoppingCart size={16} />}
+          label="My Cart"
+          onClick={() => handleNavigate("/my-cart")}
+        />
+        <ProfileMenuItem
+          icon={<Heart size={16} />}
+          label="Wishlist"
+          onClick={() => handleNavigate("/wishlist")}
+        />
+        <ProfileMenuItem
+          icon={<User size={16} />}
+          label="Teach on INFINO ED"
+          onClick={() => handleNavigate("/teach")}
+        />
 
-            {idx < menuSections.length - 1 && <DropdownMenuSeparator />}
-          </div>
-        ))}
+        <DropdownMenuSeparator />
+
+        {/* NOTIFICATIONS */}
+        <DropdownMenuLabel className="px-4 text-gray-400 text-xs uppercase">
+          Notifications
+        </DropdownMenuLabel>
+
+        <ProfileMenuItem
+          icon={<Bell size={16} />}
+          label="Notifications"
+          badgeCount={notificationCount}
+          onClick={() => handleNavigate("/notifications")}
+        />
+        <ProfileMenuItem
+          icon={<MessageSquare size={16} />}
+          label="Messages"
+          badgeCount={messageCount}
+          onClick={() => handleNavigate("/messages")}
+        />
+
+        <DropdownMenuSeparator />
+
+        {/* ACCOUNT */}
+        <DropdownMenuLabel className="px-4 text-gray-400 text-xs uppercase">
+          Account
+        </DropdownMenuLabel>
+
+        <ProfileMenuItem
+          icon={<CreditCard size={16} />}
+          label="Payment Methods"
+          onClick={() => handleNavigate("/payment-methods")}
+        />
+        <ProfileMenuItem
+          icon={<User size={16} />}
+          label="Subscriptions"
+          onClick={() => handleNavigate("/subscriptions")}
+        />
+        <ProfileMenuItem
+          icon={<BookOpen size={16} />}
+          label="Purchase History"
+          onClick={() => handleNavigate("/purchase-history")}
+        />
+        <ProfileMenuItem
+          icon={<CreditCard size={16} />}
+          label="INFINO ED Credits"
+          onClick={() => handleNavigate("/infinioed-credits")}
+        />
+
+        <DropdownMenuSeparator />
+
+        {/* LANGUAGE */}
+        <DropdownMenuLabel className="px-4 text-gray-400 text-xs uppercase">
+          Language
+        </DropdownMenuLabel>
+
+        <LanguageDropdown />
+
+        <DropdownMenuSeparator />
+
+        {/* SIGN OUT */}
+        <ProfileMenuItem
+          icon={<LogOut size={16} />}
+          label="Sign Out"
+          danger
+          onClick={logout}
+        />
       </DropdownMenuContent>
     </DropdownMenu>
   );

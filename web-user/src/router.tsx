@@ -28,6 +28,7 @@ import Subscriptions from "./pages/Subscriptions/Subscriptions";
 import Teach from "./pages/Teach/Teach";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import PricingPage from "./pages/Pricing/PricingPage";
 
 const AppRouter: FC = () => {
   return (
@@ -61,6 +62,9 @@ const AppRouter: FC = () => {
 
           {/* Events Page */}
           <Route path="/events" element={<EventsPage />} />
+
+          {/* Events Page */}
+          <Route path="/pricing" element={<PricingPage />} />
 
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/my-learning" element={<MyLearning />} />

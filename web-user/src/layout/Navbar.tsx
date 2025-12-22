@@ -31,6 +31,7 @@ const Navbar: FC = () => {
     { name: "Events", path: "/events" },
     { name: "Gallery", path: "/gallery" },
     { name: "Blog", path: "/blog" },
+    { name: "Pricing", path: "/pricing" },
   ];
 
   const initials = user ? `${user.firstName[0]}${user.lastName[0]}` : "";

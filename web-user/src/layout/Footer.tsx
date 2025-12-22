@@ -20,6 +20,7 @@ const Footer: FC = () => {
     { name: "Events", path: "/events" },
     { name: "Blog", path: "/blog" },
     { name: "Gallery", path: "/gallery" },
+    { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
   ];
 

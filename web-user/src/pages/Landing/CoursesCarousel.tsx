@@ -14,16 +14,21 @@ import { motion } from "framer-motion";
 const CoursesCarousel = () => {
   const navigate = useNavigate();
 
+  // Filter only featured courses
+  const featuredCourses = courses.filter((course) => course.featured);
+
+  if (featuredCourses.length === 0) return null;
+
   return (
     <section className="py-24 px-6 bg-muted/10 dark:bg-muted/20">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-foreground dark:text-foreground">
-          Popular Courses
+          Featured Courses
         </h2>
 
         <Carousel>
           <CarouselContent>
-            {courses.map((course) => (
+            {featuredCourses.map((course) => (
               <CarouselItem key={course.id} className="md:basis-1/3">
                 <motion.div
                   whileHover={{ scale: 1.03 }}
@@ -44,7 +49,7 @@ const CoursesCarousel = () => {
                       </h3>
                       <Button
                         onClick={(e) => {
-                          e.stopPropagation(); // prevent card click
+                          e.stopPropagation();
                           navigate(`/courses/${course.id}`);
                         }}
                         className="w-full rounded-lg shadow hover:shadow-md transition-all duration-300"

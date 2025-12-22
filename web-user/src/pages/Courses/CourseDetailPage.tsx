@@ -1,12 +1,12 @@
 // src/pages/Courses/CourseDetailPage.tsx
 import type { FC } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { courses } from "@/data/courses";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { toast } from "react-hot-toast"; // modern toast notifications
+import { toast } from "react-hot-toast";
+import CourseCard from "@/components/CourseCard";
 
 const CourseDetailPage: FC = () => {
   const { id } = useParams();
@@ -47,7 +47,7 @@ const CourseDetailPage: FC = () => {
         <img
           src={course.image}
           alt={course.title}
-          className="w-full h-72 md:h-96 object-cover"
+          className="w-full h-82 md:h-96 object-cover"
         />
         {course.featured && (
           <div className="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -133,36 +133,14 @@ const CourseDetailPage: FC = () => {
         <section>
           <h2 className="text-3xl font-semibold mb-6">Related Courses</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedCourses.map((c) => (
-              <motion.div
+            {relatedCourses.map((c, idx) => (
+              <CourseCard
                 key={c!.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Card
-                  className="hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
-                  onClick={() => navigate(`/courses/${c!.id}`)}
-                >
-                  <img
-                    src={c!.image}
-                    alt={c!.title}
-                    className="h-40 w-full object-cover rounded-t-lg"
-                  />
-                  <CardContent className="flex flex-col flex-grow p-4">
-                    <span className="font-semibold text-lg mb-2">
-                      {c!.title}
-                    </span>
-                    <div className="mt-auto flex gap-2">
-                      <Link to={`/courses/${c!.id}`} className="flex-1">
-                        <Button size="sm" variant="outline" className="w-full">
-                          View
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                {...c!}
+                delay={idx * 0.1}
+                onEnroll={() => toast.success(`Enrolled in ${c!.title}`)}
+                onLearnMore={() => navigate(`/courses/${c!.id}`)}
+              />
             ))}
           </div>
         </section>

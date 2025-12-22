@@ -41,7 +41,7 @@ const CoursesCarousel = () => {
                     <img
                       src={course.image}
                       alt={course.title}
-                      className="h-48 w-full object-cover rounded-t-2xl"
+                      className="h-58 w-full object-cover rounded-t-2xl"
                     />
                     <CardContent className="p-4">
                       <h3 className="font-semibold text-lg mb-3 text-foreground dark:text-foreground">

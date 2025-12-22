@@ -27,7 +27,7 @@ const CourseCard: FC<CourseCardProps> = ({
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay }}
   >
-    <Card className="relative hover:shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer flex flex-col h-full">
+    <Card className="relative hover:shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer flex flex-col h-full  p-3">
       {featured && (
         <div className="absolute top-3 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
           Featured
@@ -36,7 +36,7 @@ const CourseCard: FC<CourseCardProps> = ({
       <img
         src={image}
         alt={title}
-        className="h-48 w-full object-cover rounded-t-lg"
+        className="h-58 w-full object-cover rounded-t-lg"
       />
       <CardContent className="flex flex-col flex-grow p-6">
         <div className="flex justify-between items-center mb-2">

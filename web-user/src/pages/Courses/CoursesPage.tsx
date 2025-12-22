@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { FC } from "react";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 
 const levels = ["All", "Beginner", "Intermediate", "Advanced"];
 
@@ -66,7 +67,7 @@ const CoursesPage: FC = () => {
             key={course.id}
             {...course}
             delay={idx * 0.1}
-            onEnroll={() => console.log(`Enrolled in ${course.title}`)}
+            onEnroll={() => toast.success(`Enrolled in ${course!.title}`)}
             onLearnMore={() => navigate(`/courses/${course.id}`)}
           />
         ))}

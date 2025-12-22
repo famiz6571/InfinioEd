@@ -77,7 +77,7 @@ const BlogPage: FC = () => {
                 <Card className="h-72 flex flex-col justify-between shadow-md hover:shadow-xl transform hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 rounded-2xl cursor-pointer relative">
                   {/* Featured Badge */}
                   {post.featured && (
-                    <span className="absolute top-3 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="absolute top-1 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                       Featured
                     </span>
                   )}

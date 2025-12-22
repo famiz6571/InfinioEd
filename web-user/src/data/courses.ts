@@ -15,8 +15,7 @@ export const courses: Course[] = [
     id: 1,
     title: "Full Stack Web Development",
     description: "Learn React, Node.js, PostgreSQL, and more.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course1.png",
     syllabus: [
       "Introduction & Environment Setup",
       "Frontend Development with React",
@@ -36,8 +35,7 @@ export const courses: Course[] = [
     id: 2,
     title: "Data Science & Machine Learning",
     description: "Python, Pandas, NumPy, scikit-learn, and AI basics.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course2.png",
     syllabus: [
       "Python Basics",
       "Data Analysis with Pandas",
@@ -56,8 +54,7 @@ export const courses: Course[] = [
     id: 3,
     title: "UI/UX Design",
     description: "Figma, design principles, prototyping, and wireframes.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course3.png",
     syllabus: [
       "UI/UX Design Principles",
       "Wireframing & Prototyping",
@@ -76,8 +73,7 @@ export const courses: Course[] = [
     id: 4,
     title: "Cybersecurity Fundamentals",
     description: "Network security, encryption, and ethical hacking basics.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course4.png",
     syllabus: [
       "Introduction to Cybersecurity",
       "Network Security",
@@ -92,8 +88,7 @@ export const courses: Course[] = [
     id: 5,
     title: "Angular & Node Full Stack",
     description: "Learn Angular, Node.js, Express, and database integration.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course5.png",
     syllabus: [
       "Angular Basics",
       "Component & Module Design",
@@ -108,8 +103,7 @@ export const courses: Course[] = [
     id: 6,
     title: "Vue.js & Express Full Stack",
     description: "Master Vue.js frontend with Express backend development.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course6.png",
     syllabus: [
       "Vue.js Fundamentals",
       "Component Architecture",
@@ -124,8 +118,7 @@ export const courses: Course[] = [
     id: 7,
     title: "Python & Django Full Stack",
     description: "Build web apps with Python, Django, and PostgreSQL.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course7.png",
     syllabus: [
       "Python Programming",
       "Django Framework Basics",
@@ -141,8 +134,7 @@ export const courses: Course[] = [
     title: "Advanced Full Stack Developer Program",
     description:
       "Comprehensive full stack program covering multiple frameworks.",
-    image:
-      "https://fpoimg.com/400x300?text=Preview&bg_color=e6e6e6&text_color=8F8F8F",
+    image: "/courses/course8.png",
     syllabus: [
       "Frontend Frameworks: React, Angular, Vue",
       "Backend Frameworks: Node.js, Django, Express",

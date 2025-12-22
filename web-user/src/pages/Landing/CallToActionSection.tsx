@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const CallToActionSection = () => {
   const navigate = useNavigate();
+
   return (
     <section className="py-24 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
       <motion.div
@@ -12,25 +14,47 @@ const CallToActionSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-4xl font-bold mb-6">Ready to Start Learning?</h2>
-        <p className="text-lg mb-8 text-white/90 max-w-xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Ready to Start Learning?
+        </h2>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
           Join thousands of learners worldwide and start building your skills
           today.
         </p>
+
+        {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
-          <Button
-            onClick={() => navigate("/courses")}
-            className="bg-white text-indigo-600 hover:bg-gray-100 shadow-lg"
-          >
-            Get Started
-          </Button>
-          <Button
-            onClick={() => navigate("/courses")}
-            variant="default"
-            className="bg-indigo-800/30 hover:bg-indigo-800/50 text-white shadow-lg"
-          >
-            Browse Courses
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              onClick={() => navigate("/courses")}
+              className="
+                bg-white text-indigo-600 font-semibold
+                px-8 py-4 shadow-lg rounded-lg
+                hover:bg-gray-100 transition-colors duration-300
+                flex items-center gap-2
+              "
+            >
+              Get Started
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              onClick={() => navigate("/courses")}
+              variant="default"
+              className="
+                bg-indigo-800/30 hover:bg-indigo-800/50
+                text-white font-semibold px-8 py-4
+                shadow-lg rounded-lg transition-colors duration-300
+              "
+            >
+              Browse Courses
+            </Button>
+          </motion.div>
         </div>
       </motion.div>
     </section>

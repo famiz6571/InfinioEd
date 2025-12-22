@@ -13,21 +13,22 @@ const carouselImages = [
 
 const CarouselSection: FC = () => {
   return (
-    <section className="w-full">
+    <section className="mb-16 flex justify-center">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 4000 }}
         loop
-        className="max-w-[800px] "
+        className="max-w-4xl w-full rounded-lg shadow-lg"
+        style={{ height: "400px" }}
       >
         {carouselImages.map((img, idx) => (
           <SwiperSlide key={idx} className="flex justify-center items-center">
             <img
               src={img}
               alt={`Slide ${idx + 1}`}
-              className="w-full h-full object-cover rounded-md"
+              className="w-full h-full object-cover rounded-lg"
             />
           </SwiperSlide>
         ))}

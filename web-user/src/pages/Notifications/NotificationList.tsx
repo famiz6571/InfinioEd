@@ -11,7 +11,7 @@ interface Notification {
   description: string;
   read: boolean;
   time: string;
-  date: string; // e.g., "2025-12-23"
+  date: string; // "2025-12-23"
 }
 
 interface NotificationListProps {
@@ -34,7 +34,7 @@ const NotificationList: FC<NotificationListProps> = ({
   );
 
   return (
-    <ScrollArea className="h-[600px] rounded-xl border p-4">
+    <ScrollArea className="h-[70vh] sm:h-[600px] w-full max-w-full overflow-x-hidden rounded-xl border p-3 sm:p-4">
       {Object.keys(grouped).length === 0 && (
         <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
           No notifications to show.
@@ -42,22 +42,23 @@ const NotificationList: FC<NotificationListProps> = ({
       )}
 
       {Object.entries(grouped).map(([date, items]) => (
-        <div key={date} className="mb-6">
-          <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
+        <div key={date} className="mb-6 w-full max-w-full">
+          <h3 className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
             {date}
           </h3>
-          <div className="space-y-4">
+
+          <div className="space-y-3 sm:space-y-4 w-full max-w-full">
             {items.map((n) => (
               <div
                 key={n.id}
-                className={`flex items-start gap-4 p-4 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-transparent ${
+                className={`w-full max-w-full overflow-hidden flex flex-col sm:flex-row gap-3 sm:gap-4 p-4 rounded-xl transition-all duration-300 border ${
                   n.read
                     ? "bg-gray-50 dark:bg-gray-800"
                     : "bg-indigo-50 dark:bg-indigo-900/30 border-indigo-300 dark:border-indigo-600"
                 }`}
               >
-                {/* Timeline indicator */}
-                <div className="flex flex-col items-center">
+                {/* Timeline (hidden on mobile) */}
+                <div className="hidden sm:flex flex-col items-center flex-shrink-0">
                   <div
                     className={`w-3 h-3 rounded-full ${
                       n.read
@@ -68,19 +69,19 @@ const NotificationList: FC<NotificationListProps> = ({
                   <div className="flex-1 w-px bg-gray-200 dark:bg-gray-700 mt-1" />
                 </div>
 
-                {/* Icon and content */}
-                <div className="flex-1 flex flex-col gap-1">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                {/* Content */}
+                <div className="flex-1 min-w-0 flex flex-col gap-1">
+                  <div className="flex items-start justify-between gap-2 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <Bell
-                        className={`w-5 h-5 ${
+                        className={`w-5 h-5 flex-shrink-0 ${
                           n.read
                             ? "text-gray-500 dark:text-gray-400"
                             : "text-indigo-600"
                         }`}
                       />
                       <span
-                        className={`font-medium ${
+                        className={`font-medium break-words ${
                           n.read
                             ? "text-gray-900 dark:text-white"
                             : "text-indigo-900 dark:text-white"
@@ -89,20 +90,23 @@ const NotificationList: FC<NotificationListProps> = ({
                         {n.title}
                       </span>
                     </div>
-                    {!n.read && <Badge variant="default">New</Badge>}
+                    {!n.read && <Badge className="flex-shrink-0">New</Badge>}
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+
+                  <p className="text-gray-600 dark:text-gray-300 text-sm break-words">
                     {n.description}
                   </p>
+
                   <p className="text-gray-400 dark:text-gray-500 text-xs">
                     {n.time}
                   </p>
                 </div>
 
                 {/* Action button */}
-                <div className="flex-shrink-0 mt-1">
+                <div className="flex-shrink-0 w-full sm:w-auto">
                   <Button
                     size="sm"
+                    className="w-full sm:w-auto"
                     variant={n.read ? "outline" : "default"}
                     onClick={() => onToggleRead(n.id)}
                   >

@@ -16,6 +16,11 @@ export default function UserProfile() {
     country: "AE",
     username: "johndoe",
     avatar: "/placeholder/placeholder1.png",
+    social: {
+      linkedin: "https://linkedin.com/in/johndoe",
+      twitter: "https://twitter.com/johndoe",
+      github: "https://github.com/johndoe",
+    },
   });
 
   const [editing, setEditing] = useState(false);
@@ -34,6 +39,9 @@ export default function UserProfile() {
       required: false,
       label: "Confirm Password",
     },
+    linkedin: { type: "string", label: "LinkedIn URL" },
+    twitter: { type: "string", label: "Twitter URL" },
+    github: { type: "string", label: "GitHub URL" },
   };
 
   const stats = [
@@ -52,14 +60,24 @@ export default function UserProfile() {
     <div className="max-w-7xl mx-auto px-6 py-12 space-y-12">
       <ProfileHeader {...user} onEdit={() => setEditing(true)} />
       <StatsCard stats={stats} />
-      <AboutCard bio={user.bio} />
+      <AboutCard
+        bio={user.bio}
+        onSave={(data) => setUser((prev) => ({ ...prev, bio: data }))}
+      />
       <CoursesCard courses={courses} />
 
       <EditableProfileModal
-        open={editing} // ✅ required prop
+        open={editing}
         fields={fields}
-        initialValues={user}
-        onSave={(data) => setUser((prev) => ({ ...prev, ...data }))}
+        initialValues={{ ...user, ...user.social }}
+        onSave={(data) => {
+          const { linkedin, twitter, github, ...rest } = data;
+          setUser((prev) => ({
+            ...prev,
+            ...rest,
+            social: { linkedin, twitter, github },
+          }));
+        }}
         onClose={() => setEditing(false)}
       />
     </div>

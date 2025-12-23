@@ -16,13 +16,22 @@ const StatsCard: FC<StatsCardProps> = ({ stats }) => (
     {stats.map((s, idx) => (
       <Card
         key={idx}
-        className="flex flex-col items-center justify-center p-6 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300"
+        className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105"
       >
-        <s.icon className="w-8 h-8 text-indigo-600 dark:text-indigo-400 mb-2" />
-        <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white whitespace-nowrap overflow-hidden text-ellipsis">
+        {/* Icon with background circle */}
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900 mb-3">
+          <s.icon className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+        </div>
+
+        {/* Value */}
+        <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-1">
           {s.value}
         </CardTitle>
-        <p className="text-sm text-gray-600 dark:text-gray-300">{s.label}</p>
+
+        {/* Label */}
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center">
+          {s.label}
+        </p>
       </Card>
     ))}
   </div>

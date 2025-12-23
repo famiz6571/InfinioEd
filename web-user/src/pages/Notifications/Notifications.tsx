@@ -1,6 +1,5 @@
 // src/pages/Notifications.tsx
 import { useState } from "react";
-import { toast } from "react-hot-toast";
 import NotificationFilter from "./NotificationFilter";
 import NotificationHeader from "./NotificationHeader";
 import NotificationList from "./NotificationList";
@@ -8,7 +7,6 @@ import NotificationList from "./NotificationList";
 export default function Notifications() {
   const [filter, setFilter] = useState<"all" | "unread" | "read">("all");
 
-  // Dummy notifications with more records
   const [notifications, setNotifications] = useState([
     {
       id: 1,
@@ -16,6 +14,7 @@ export default function Notifications() {
       description: "Enroll now and improve your React skills.",
       read: false,
       time: "2h ago",
+      date: "2025-12-23", // add this
     },
     {
       id: 2,
@@ -23,6 +22,7 @@ export default function Notifications() {
       description: "Your Next.js project is due tomorrow.",
       read: true,
       time: "1d ago",
+      date: "2025-12-22",
     },
     {
       id: 3,
@@ -30,13 +30,15 @@ export default function Notifications() {
       description: "You completed the Python Bootcamp.",
       read: false,
       time: "3d ago",
+      date: "2025-12-20",
     },
     {
       id: 4,
       title: "Weekly Digest",
-      description: "See what’s new on INIFINOED this week.",
+      description: "See what’s new on INFINIOED this week.",
       read: true,
       time: "5d ago",
+      date: "2025-12-18",
     },
     {
       id: 5,
@@ -44,6 +46,7 @@ export default function Notifications() {
       description: "Join our live UI/UX workshop this weekend.",
       read: false,
       time: "6h ago",
+      date: "2025-12-23",
     },
     {
       id: 6,
@@ -51,6 +54,7 @@ export default function Notifications() {
       description: "Scheduled maintenance on Dec 28, 2AM-4AM UTC.",
       read: true,
       time: "2d ago",
+      date: "2025-12-21",
     },
     {
       id: 7,
@@ -58,6 +62,7 @@ export default function Notifications() {
       description: "Please provide feedback on your latest course.",
       read: false,
       time: "12h ago",
+      date: "2025-12-23",
     },
     {
       id: 8,
@@ -65,6 +70,7 @@ export default function Notifications() {
       description: "You earned the 'Frontend Hero' badge.",
       read: false,
       time: "1d ago",
+      date: "2025-12-22",
     },
   ]);
 
@@ -79,7 +85,6 @@ export default function Notifications() {
     setNotifications((prev) =>
       prev.map((n) => {
         if (n.id === id) {
-          toast.success(`Marked as ${n.read ? "unread" : "read"}`);
           return { ...n, read: !n.read };
         }
         return n;

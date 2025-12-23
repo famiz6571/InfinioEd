@@ -17,7 +17,7 @@ const MessageInput: FC<MessageInputProps> = ({ onSend }) => {
   };
 
   return (
-    <div className="flex gap-2 p-3  border-gray-300 dark:border-gray-600 rounded-b-xl">
+    <div className="flex gap-2 p-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-b-2xl">
       <Input
         placeholder="Type a message..."
         value={text}

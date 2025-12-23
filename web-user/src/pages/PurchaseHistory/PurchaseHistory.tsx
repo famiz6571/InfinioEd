@@ -1,9 +1,9 @@
 // src/pages/PurchaseHistory/PurchaseHistory.tsx
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CreditCard, DollarSign, Wallet } from "lucide-react";
+import { CreditCard, DollarSign, Wallet, Search } from "lucide-react";
 import { toast } from "react-hot-toast";
 import {
   Select,
@@ -12,6 +12,7 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
 interface Purchase {
   id: number;
@@ -108,11 +109,14 @@ export default function PurchaseHistory() {
 
   const [filterStatus, setFilterStatus] = useState<string | null>(null);
   const [filterMethod, setFilterMethod] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredPurchases = purchases.filter(
     (p) =>
       (filterStatus ? p.status === filterStatus : true) &&
-      (filterMethod ? p.method === filterMethod : true)
+      (filterMethod ? p.method === filterMethod : true) &&
+      (p.details?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        searchTerm === "")
   );
 
   const getMethodIcon = (method: Purchase["method"]) => {
@@ -138,13 +142,24 @@ export default function PurchaseHistory() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 space-y-6">
+    <div className="max-w-5xl mx-auto px-6 py-12 space-y-6">
       <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
         Purchase History
       </h1>
 
-      {/* Filters */}
+      {/* Filters + Search */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <div className="relative w-full sm:w-64">
+          <Input
+            placeholder="Search by course..."
+            value={searchTerm}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setSearchTerm(e.target.value)
+            }
+          />
+          <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+        </div>
+
         <Select
           onValueChange={(val) => setFilterStatus(val)}
           value={filterStatus || ""}
@@ -178,23 +193,26 @@ export default function PurchaseHistory() {
           onClick={() => {
             setFilterStatus(null);
             setFilterMethod(null);
+            setSearchTerm("");
           }}
         >
           Reset Filters
         </Button>
       </div>
 
-      <ScrollArea className="rounded-xl border h-[600px] p-4">
+      {/* Scrollable List */}
+      <ScrollArea className="h-[600px] rounded-xl border p-4">
         <div className="flex flex-col gap-4">
           {filteredPurchases.length === 0 && (
             <p className="text-center text-gray-500 dark:text-gray-400 mt-6">
               No purchases found.
             </p>
           )}
+
           {filteredPurchases.map((purchase) => (
             <div
               key={purchase.id}
-              className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 hover:shadow-md transition-shadow"
+              className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
               <div className="flex items-center gap-3 mb-2 sm:mb-0">
                 {getMethodIcon(purchase.method)}

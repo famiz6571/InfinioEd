@@ -5,7 +5,7 @@ import HowItWorksSection from "./TeachHowItWorks";
 
 export default function Teach() {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
+    <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />

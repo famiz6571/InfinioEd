@@ -16,6 +16,19 @@ import TutorialsPage from "./pages/Tutorials/TutorialsPage";
 import FAQPage from "./pages/FAQ/FAQPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy/PrivacyPolicyPage";
 import SupportPage from "./pages/Support/SupportPage";
+import EventsPage from "./pages/Events/EventsPage";
+import MyLearning from "./pages/MyLearning/MyLearning";
+import InfinioEdCredits from "./pages/InfinioEdCredits/InfinioEdCredits";
+import Messages from "./pages/Messages/Messages";
+import MyCart from "./pages/MyCart/MyCart";
+import Notifications from "./pages/Notifications/Notifications";
+import PaymentMethods from "./pages/PaymentMethods/PaymentMethods";
+import PurchaseHistory from "./pages/PurchaseHistory/PurchaseHistory";
+import Subscriptions from "./pages/Subscriptions/Subscriptions";
+import Teach from "./pages/Teach/Teach";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Wishlist from "./pages/Wishlist/Wishlist";
+import PricingPage from "./pages/Pricing/PricingPage";
 
 const AppRouter: FC = () => {
   return (
@@ -46,6 +59,24 @@ const AppRouter: FC = () => {
 
           {/* Gallery Page */}
           <Route path="/gallery" element={<GalleryPage />} />
+
+          {/* Events Page */}
+          <Route path="/events" element={<EventsPage />} />
+
+          {/* Events Page */}
+          <Route path="/pricing" element={<PricingPage />} />
+
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/my-learning" element={<MyLearning />} />
+          <Route path="/my-cart" element={<MyCart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/teach" element={<Teach />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/payment-methods" element={<PaymentMethods />} />
+          <Route path="/subscriptions" element={<Subscriptions />} />
+          <Route path="/purchase-history" element={<PurchaseHistory />} />
+          <Route path="/infinioed-credits" element={<InfinioEdCredits />} />
 
           <Route path="/tutorials" element={<TutorialsPage />} />
           <Route path="/faq" element={<FAQPage />} />

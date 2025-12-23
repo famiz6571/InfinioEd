@@ -12,17 +12,17 @@ import {
 } from "lucide-react";
 
 const Footer: FC = () => {
-  // Page links
   const pages = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Courses", path: "/courses" },
+    { name: "Events", path: "/events" },
     { name: "Blog", path: "/blog" },
     { name: "Gallery", path: "/gallery" },
+    { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
   ];
 
-  // Resource links
   const resources = [
     { name: "Tutorials", path: "/tutorials" },
     { name: "FAQ", path: "/faq" },
@@ -30,7 +30,6 @@ const Footer: FC = () => {
     { name: "Privacy Policy", path: "/privacy-policy" },
   ];
 
-  // Social links
   const socials: { icon: FC<any>; url: string }[] = [
     { icon: Github, url: "https://github.com" },
     { icon: Linkedin, url: "https://linkedin.com" },
@@ -42,7 +41,7 @@ const Footer: FC = () => {
 
   return (
     <footer className="bg-primary dark:bg-gray-900 text-gray-200 transition-colors duration-300 mt-auto">
-      <div className="container mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Branding */}
         <div className="text-center md:text-left">
           <h3 className="text-2xl font-bold text-white mb-2">INIFINOED</h3>
@@ -52,7 +51,7 @@ const Footer: FC = () => {
           </p>
 
           {/* Social Icons */}
-          <div className="flex gap-3 mt-4 justify-center md:justify-start">
+          <div className="flex gap-3 mt-4 justify-center md:justify-start flex-wrap">
             {socials.map(({ icon: Icon, url }) => (
               <a key={url} href={url} target="_blank" rel="noopener noreferrer">
                 <Icon className="w-5 h-5 hover:text-white transition-colors" />
@@ -61,38 +60,36 @@ const Footer: FC = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Pages Section 2 columns even on mobile */}
         <div className="text-center md:text-left">
           <h4 className="font-semibold mb-3 text-white">Pages</h4>
-          <ul className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {pages.map((page) => (
-              <li key={page.name}>
-                <Link
-                  to={page.path}
-                  className="hover:underline hover:text-white transition-colors"
-                >
-                  {page.name}
-                </Link>
-              </li>
+              <Link
+                key={page.name}
+                to={page.path}
+                className="hover:underline hover:text-white transition-colors"
+              >
+                {page.name}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
 
-        {/* Resources */}
+        {/* Resources Section 2 columns even on mobile */}
         <div className="text-center md:text-left">
           <h4 className="font-semibold mb-3 text-white">Resources</h4>
-          <ul className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {resources.map((res) => (
-              <li key={res.name}>
-                <Link
-                  to={res.path}
-                  className="hover:underline hover:text-white transition-colors"
-                >
-                  {res.name}
-                </Link>
-              </li>
+              <Link
+                key={res.name}
+                to={res.path}
+                className="hover:underline hover:text-white transition-colors"
+              >
+                {res.name}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Newsletter */}
@@ -101,13 +98,16 @@ const Footer: FC = () => {
           <p className="text-gray-300 text-sm mb-4">
             Subscribe to get the latest updates, courses, and articles.
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               placeholder="Your email"
-              className="px-3 py-2 rounded-l-lg border border-gray-700 bg-gray-800 text-white focus:outline-none w-full"
+              className="px-3 py-2 rounded-lg border border-gray-700 bg-gray-800 text-white focus:outline-none w-full"
             />
-            <Button variant="default" className="rounded-r-lg px-4">
+            <Button
+              variant="default"
+              className="rounded-lg px-4 w-full sm:w-auto"
+            >
               Subscribe
             </Button>
           </div>

@@ -5,6 +5,8 @@ export interface BlogPost {
   excerpt: string;
   content: string; // HTML/Tailwind content
   date: string;
+  tags?: string[]; // Categories or tags
+  featured?: boolean; // For featured posts
 }
 
 export const blogPosts: BlogPost[] = [
@@ -18,6 +20,8 @@ export const blogPosts: BlogPost[] = [
       <p class="mb-4">You can now use <code>startTransition</code> to mark non-urgent updates and keep your UI responsive.</p>
     `,
     date: "Dec 10, 2025",
+    tags: ["React", "Frontend", "JavaScript"],
+    featured: true,
   },
   {
     id: "2",
@@ -33,6 +37,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     date: "Dec 12, 2025",
+    tags: ["CSS", "Tailwind", "Frontend"],
   },
   {
     id: "3",
@@ -44,6 +49,8 @@ export const blogPosts: BlogPost[] = [
       <p class="mb-4">You can define props and state types to avoid runtime errors and improve maintainability.</p>
     `,
     date: "Dec 15, 2025",
+    tags: ["React", "TypeScript", "Frontend"],
+    featured: true,
   },
   {
     id: "4",
@@ -60,6 +67,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     date: "Dec 18, 2025",
+    tags: ["React", "State Management", "Frontend"],
   },
   {
     id: "5",
@@ -75,6 +83,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     date: "Dec 20, 2025",
+    tags: ["React", "Performance", "Frontend"],
   },
   {
     id: "6",
@@ -86,5 +95,6 @@ export const blogPosts: BlogPost[] = [
       <p class="mb-4">This allows for faster page loads and better SEO for React apps.</p>
     `,
     date: "Dec 22, 2025",
+    tags: ["Next.js", "React", "Fullstack"],
   },
 ];

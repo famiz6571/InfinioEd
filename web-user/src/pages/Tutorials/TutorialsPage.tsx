@@ -105,7 +105,7 @@ const TutorialsPage: FC = () => {
               <CardHeader className="flex flex-col gap-3">
                 <CardTitle className="flex items-center justify-between text-xl">
                   {tut.title}
-                  {tut.isNew && <Badge variant="secondary">New</Badge>}
+                  {tut.isNew && <Badge className="ml-2" variant="secondary">New</Badge>}
                 </CardTitle>
                 <div className="flex gap-2 flex-wrap">
                   {tut.tags.map((tag, index) => (

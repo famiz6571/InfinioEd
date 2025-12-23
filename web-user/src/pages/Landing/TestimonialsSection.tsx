@@ -20,12 +20,19 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-24 px-6 bg-gray-50 dark:bg-gray-800">
+    <section className="py-24 px-6 bg-muted/10 dark:bg-muted/20">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-foreground dark:text-foreground"
+        >
           What Our Students Say
-        </h2>
+        </motion.h2>
       </div>
+
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
         {testimonials.map((t, i) => (
           <motion.div
@@ -35,12 +42,14 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
           >
-            <Card className="rounded-2xl">
-              <CardContent className="p-6 text-center">
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+            <Card className="rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
+              <CardContent className="p-8 text-center">
+                <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-lg">
                   "{t.feedback}"
                 </p>
-                <h4 className="font-semibold">{t.name}</h4>
+                <h4 className="font-semibold text-foreground dark:text-foreground text-lg">
+                  {t.name}
+                </h4>
               </CardContent>
             </Card>
           </motion.div>

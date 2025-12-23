@@ -1,6 +1,10 @@
 import GallerySection from "./GallerySection";
 import CarouselSection from "./CarouselSection";
 import type { FC } from "react";
+import FeaturedProjectsSection from "./FeaturedProjectsSection";
+import GalleryCTASection from "./GalleryCTASection";
+import GalleryTestimonials from "./GalleryTestimonials";
+import VideoPreviewSection from "./VideoPreviewSection";
 
 const GalleryPage: FC = () => {
   return (
@@ -9,6 +13,10 @@ const GalleryPage: FC = () => {
         <h1 className="text-4xl font-bold mb-12 text-center">Our Gallery</h1>
         <CarouselSection />
         <GallerySection />
+        <FeaturedProjectsSection />
+        <VideoPreviewSection />
+        <GalleryTestimonials />
+        <GalleryCTASection />
       </div>
     </div>
   );

@@ -11,8 +11,15 @@ interface EventCardProps {
   description: string;
   onRegister?: () => void;
   onLearnMore?: () => void;
-  delay?: number; // for framer-motion stagger
+  delay?: number;
 }
+
+const levelStyles: Record<EventCardProps["level"], string> = {
+  Beginner: "bg-green-100 text-green-700 dark:bg-green-700 dark:text-green-100",
+  Intermediate:
+    "bg-yellow-100 text-yellow-700 dark:bg-yellow-700 dark:text-yellow-100",
+  Advanced: "bg-red-100 text-red-700 dark:bg-red-700 dark:text-red-100",
+};
 
 const EventCard: FC<EventCardProps> = ({
   title,
@@ -26,55 +33,62 @@ const EventCard: FC<EventCardProps> = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
-      className="relative bg-white dark:bg-gray-900 rounded-xl shadow p-6 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, ease: "easeOut", delay }}
+      whileHover={{ scale: 1.02 }}
+      className="relative w-full max-w-full overflow-hidden bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl transition-shadow"
     >
       {/* Featured Ribbon */}
       {featured && (
-        <div className="absolute top-3 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+        <span className="absolute top-3 right-3 z-10 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
           Featured
-        </div>
-      )}
-
-      {/* Title & Date */}
-      <h3 className="font-semibold text-xl mb-2">{title}</h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-4">{date}</p>
-
-      {/* Level Badge */}
-      {level && (
-        <span
-          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4
-            ${
-              level === "Advanced"
-                ? "bg-red-100 text-red-700 dark:bg-red-700 dark:text-red-100"
-                : "bg-green-100 text-green-700 dark:bg-green-700 dark:text-green-100"
-            }`}
-        >
-          {level}
         </span>
       )}
 
-      {/* Description */}
-      <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
-        {description}
-      </p>
+      <div className="p-6 flex flex-col min-w-0">
+        {/* Title */}
+        <h3 className="font-semibold text-lg sm:text-xl mb-1 break-words">
+          {title}
+        </h3>
 
-      {/* Action Buttons */}
-      <div className="flex gap-3">
-        <Button size="sm" className="flex-1" onClick={onRegister}>
-          Register
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          className="flex-1"
-          onClick={onLearnMore}
+        {/* Date */}
+        <p className="text-gray-500 dark:text-gray-400 text-sm mb-3">{date}</p>
+
+        {/* Level Badge */}
+        <span
+          className={`inline-block w-fit px-3 py-1 rounded-full text-xs font-semibold mb-4 ${levelStyles[level]}`}
         >
-          Learn More
-        </Button>
+          {level}
+        </span>
+
+        {/* Description */}
+        <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 break-words line-clamp-3">
+          {description}
+        </p>
+
+        {/* Actions */}
+        <div className="mt-auto flex flex-col sm:flex-row gap-3">
+          <Button
+            size="sm"
+            className="w-full sm:flex-1"
+            onClick={onRegister}
+            aria-label="Register for event"
+          >
+            Register
+          </Button>
+
+          <Button
+            size="sm"
+            variant="outline"
+            className="w-full sm:flex-1"
+            onClick={onLearnMore}
+            aria-label="Learn more about event"
+          >
+            Learn More
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

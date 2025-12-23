@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MessageSquare } from "lucide-react";
 import LiveChat from "./LiveChat";
+import { Link } from "react-router-dom";
 
 const SupportPage: FC = () => {
   return (
@@ -74,12 +75,12 @@ const SupportPage: FC = () => {
           <p>Support Hours: Monday – Friday, 9:00 AM – 6:00 PM</p>
           <p>
             Frequently Asked Questions:{" "}
-            <a
-              href="/faq"
+            <Link
+              to="/faq"
               className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               View FAQ
-            </a>
+            </Link>
           </p>
           <p>Follow us on social media for updates and tips.</p>
         </div>

@@ -129,7 +129,7 @@ const PricingPage: FC = () => {
             onClick={() => setBilling("monthly")}
             className={`px-6 py-2 rounded-full font-medium transition ${
               billing === "monthly"
-                ? "bg-primary text-white"
+                ? "bg-primary text-white dark:text-black"
                 : "text-gray-700 dark:text-gray-300"
             }`}
           >
@@ -139,7 +139,7 @@ const PricingPage: FC = () => {
             onClick={() => setBilling("yearly")}
             className={`px-6 py-2 rounded-full font-medium transition ${
               billing === "yearly"
-                ? "bg-primary text-white"
+                ? "bg-primary text-white dark:text-black"
                 : "text-gray-700 dark:text-gray-300"
             }`}
           >

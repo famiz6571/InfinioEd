@@ -7,20 +7,23 @@ const CallToActionSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
+    <section className="py-24 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 relative overflow-hidden">
+      <div className="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl pointer-events-none"></div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
+        className="relative z-10 text-center max-w-4xl mx-auto"
       >
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
           Ready to Start Learning?
         </h2>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl mb-10 text-white/90">
           Join thousands of learners worldwide and start building your skills
           today.
         </p>
@@ -31,9 +34,9 @@ const CallToActionSection = () => {
             <Button
               onClick={() => navigate("/courses")}
               className="
-                bg-white text-indigo-600 font-semibold
-                px-8 py-4 shadow-lg rounded-lg
-                hover:bg-gray-100 transition-colors duration-300
+                bg-white/90 text-indigo-600 font-semibold
+                px-8 py-4 shadow-lg rounded-xl
+                hover:bg-white transition-all duration-300
                 flex items-center gap-2
               "
             >
@@ -49,7 +52,7 @@ const CallToActionSection = () => {
               className="
                 bg-indigo-800/30 hover:bg-indigo-800/50
                 text-white font-semibold px-8 py-4
-                shadow-lg rounded-lg transition-colors duration-300
+                shadow-lg rounded-xl transition-all duration-300
               "
             >
               Browse Courses

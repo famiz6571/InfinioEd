@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 const steps = [
   { step: "1", title: "Choose Course" },
@@ -9,51 +10,37 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section className="py-24 bg-muted/10 dark:bg-muted/20">
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-foreground dark:text-foreground"
+          className="text-4xl md:text-5xl font-bold mb-16 text-gray-900 dark:text-white"
         >
           How It Works
         </motion.h2>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {steps.map((s, i) => (
             <motion.div
               key={s.step}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="
-                flex flex-col items-center p-8
-                bg-background dark:bg-gray-800
-                rounded-2xl shadow-md
-                hover:shadow-xl hover:-translate-y-1
-                transition-transform duration-300
-              "
+              transition={{ duration: 0.6, delay: i * 0.15 }}
             >
-              {/* Step Number */}
-              <div
-                className="
-                flex items-center justify-center
-                w-16 h-16 rounded-full
-                bg-primary dark:bg-primary/80
-                text-white dark:text-white
-                text-2xl font-bold mb-4
-              "
-              >
-                {s.step}
-              </div>
-
-              {/* Step Title */}
-              <p className="font-medium text-lg text-foreground dark:text-foreground">
-                {s.title}
-              </p>
+              <Card className="flex flex-col items-center justify-center p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                <CardHeader className="flex flex-col items-center gap-4">
+                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold shadow-lg">
+                    {s.step}
+                  </div>
+                  <CardTitle className="text-center text-lg font-semibold text-gray-900 dark:text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                    {s.title}
+                  </CardTitle>
+                </CardHeader>
+              </Card>
             </motion.div>
           ))}
         </div>

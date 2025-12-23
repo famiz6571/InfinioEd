@@ -11,8 +11,8 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 px-6 bg-muted/10 dark:bg-muted/20">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+    <section className="py-24 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {features.map((f, i) => (
           <motion.div
             key={i}
@@ -21,10 +21,10 @@ const FeaturesSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
           >
-            <Card className="rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="p-8 text-center">
-                <f.icon className="h-12 w-12 mx-auto mb-4 text-indigo-600 dark:text-indigo-400" />
-                <h3 className="font-semibold text-lg md:text-xl text-foreground dark:text-foreground">
+            <Card className="flex flex-col items-center p-8 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md dark:backdrop-blur-sm shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+              <CardContent className="flex flex-col items-center text-center gap-4">
+                <f.icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400" />
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white whitespace-nowrap overflow-hidden text-ellipsis">
                   {f.title}
                 </h3>
               </CardContent>

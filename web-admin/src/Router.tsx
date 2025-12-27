@@ -18,6 +18,10 @@ import MenuForm from "./pages/Menus/MenuForm";
 import RoleList from "./pages/Roles/RoleList";
 import RoleForm from "./pages/Roles/RoleForm";
 import NotAuthorized from "./pages/OtherPage/NotAuthorized";
+import StudentList from "./pages/Student/StudentList";
+import StudentForm from "./pages/Student/StudentForm";
+import BankAccountList from "./pages/BankAccount/BankAccountList";
+import BankAccountForm from "./pages/BankAccount/BankAccountForm";
 
 // --- Route config ---
 const protectedRoutes = [
@@ -46,6 +50,24 @@ const protectedRoutes = [
       { index: true, element: <RoleList /> },
       { path: "create", element: <RoleForm /> },
       { path: "edit/:id", element: <RoleForm /> },
+    ],
+  },
+  {
+    path: "/students",
+    Component: () => <Outlet />,
+    children: [
+      { index: true, element: <StudentList /> },
+      { path: "create", element: <StudentForm /> },
+      { path: "edit/:id", element: <StudentForm /> },
+    ],
+  },
+  {
+    path: "/bank-accounts",
+    Component: () => <Outlet />,
+    children: [
+      { index: true, element: <BankAccountList /> },
+      { path: "create", element: <BankAccountForm /> },
+      { path: "edit/:id", element: <BankAccountForm /> },
     ],
   },
 ];

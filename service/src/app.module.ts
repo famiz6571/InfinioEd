@@ -10,6 +10,10 @@ import { Role } from './role/role.model';
 import { Menu } from './menu/menu.model';
 import { RoleMenu } from './role/role-menu.model';
 import { StatsModule } from './stats/stats.module';
+import { StudentModule } from './student/student.module';
+import { BankAccountModule } from './bank-account/bank-account.module';
+import { Student } from './student/student.model';
+import { BankAccount } from './bank-account/bank-account.model';
 
 @Module({
   imports: [
@@ -26,7 +30,7 @@ import { StatsModule } from './stats/stats.module';
         username: config.get<string>('DB_USERNAME'),
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
-        models: [User, Role, Menu, RoleMenu],
+        models: [User, Role, Menu, RoleMenu,Student,BankAccount],
         autoLoadModels: true,
         synchronize: true,
         dialectOptions: {
@@ -41,6 +45,8 @@ import { StatsModule } from './stats/stats.module';
     MenuModule,
     RoleModule,
     StatsModule,
+    StudentModule,
+    BankAccountModule,
   ],
 })
 export class AppModule {}
